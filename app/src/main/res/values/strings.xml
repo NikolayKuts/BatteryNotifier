@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Battery Notifier</string>
+    <string name="charging_state_charging">charging</string>
+    <string name="charging_state_not_charging">NOT charging</string>
+</resources>

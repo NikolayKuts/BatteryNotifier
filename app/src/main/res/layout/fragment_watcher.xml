@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewBatteryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="Level:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTimeTitle"
+        app:layout_constraintVertical_bias="0.49" />
+
+    <Button
+        android:id="@+id/button_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="close"
+        app:layout_constraintEnd_toEndOf="@+id/button_cancel"
+        app:layout_constraintStart_toStartOf="@+id/button_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/button_cancel" />
+
+    <TextView
+        android:id="@+id/textViewChargingState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/textViewBatteryTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBatteryTitle"
+        tools:text="charging" />
+
+    <TextView
+        android:id="@+id/textViewTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time:"
+        app:layout_constraintStart_toStartOf="@+id/textViewChargingState"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChargingState" />
+
+    <TextView
+        android:id="@+id/textViewBatteryLevelContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/battery_level_number"
+        app:layout_constraintStart_toEndOf="@+id/textViewBatteryTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewBatteryTitle"
+        tools:text="75" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="%"
+        app:layout_constraintStart_toEndOf="@+id/textViewBatteryLevelContent"
+        app:layout_constraintTop_toTopOf="@id/textViewBatteryLevelContent" />
+
+    <TextView
+        android:id="@+id/textViewTimeContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTimeTitle"
+        app:layout_constraintStart_toEndOf="@+id/textViewTimeTitle"
+        tools:text="12:45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

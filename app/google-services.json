@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958507875128",
+    "project_id": "battety-notifier",
+    "storage_bucket": "battety-notifier.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958507875128:android:7f6bb20b3dd43e4fb8dfcd",
+        "android_client_info": {
+          "package_name": "com.example.batterynotifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958507875128-q2bbetcdajiqsrapdm9bnjkhe5bb3n9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFd7T_YDza7ASLVRjP5TCPq6MdT-dhRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958507875128-q2bbetcdajiqsrapdm9bnjkhe5bb3n9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
