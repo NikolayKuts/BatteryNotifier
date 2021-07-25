@@ -17,6 +17,8 @@ import com.example.batterynotifier.presintation.presenters.WatcherPresenter
 import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import com.example.batterynotifier.domain.INITIAL_DELAY_MINUTES
+import com.example.batterynotifier.domain.UNIQUE_WORK_TAG
 
 class WatcherFragment : Fragment(), WatcherView {
     private var _binding: FragmentWatcherBinding? = null
@@ -116,13 +118,13 @@ class WatcherFragment : Fragment(), WatcherView {
 
     private fun scheduleWork() {
         activity?.let { activity ->
-            val workRequest = PeriodicWorkRequestBuilder<WatcherWorker>(
-                repeatInterval = PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS,
-                repeatIntervalTimeUnit = TimeUnit.MILLISECONDS
-            )
+            val workRequest = OneTimeWorkRequestBuilder<WatcherWorker>().addTag(UNIQUE_WORK_TAG)
                 .build()
 
-            WorkManager.getInstance(activity.applicationContext).enqueue(workRequest)
+            WorkManager.getInstance(activity.applicationContext).enqueueUniqueWork(
+                UNIQUE_WORK_TAG,
+                ExistingWorkPolicy.REPLACE,
+                workRequest)
         }
     }
 }

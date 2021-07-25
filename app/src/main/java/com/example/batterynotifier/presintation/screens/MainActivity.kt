@@ -3,6 +3,7 @@ package com.example.batterynotifier.presintation.screens
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.CheckBox
 import com.example.batterynotifier.R
 import com.example.batterynotifier.domain.Notifier
 import com.example.batterynotifier.presintation.FIRST_APPLICATION_START_TAG

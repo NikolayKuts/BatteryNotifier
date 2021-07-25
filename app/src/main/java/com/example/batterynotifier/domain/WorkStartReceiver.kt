@@ -24,24 +24,21 @@ class WorkStartReceiver : BroadcastReceiver() {
 
             val workRequest = when {
                 isTargetModeTurnedOn -> {
-                    PeriodicWorkRequestBuilder<TargetWorker>(
-                        repeatInterval = PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS,
-                        repeatIntervalTimeUnit = TimeUnit.MILLISECONDS
-                    )
+                    OneTimeWorkRequestBuilder<TargetWorker>().addTag(UNIQUE_WORK_TAG)
                         .build()
                 }
                 isWatcherModeTurnedOn -> {
-                    PeriodicWorkRequestBuilder<WatcherWorker>(
-                        repeatInterval = PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS,
-                        repeatIntervalTimeUnit = TimeUnit.MILLISECONDS
-                    )
+                    OneTimeWorkRequestBuilder<WatcherWorker>().addTag(UNIQUE_WORK_TAG)
                         .build()
                 }
                 else -> null
             }
 
             if (context != null && workRequest != null) {
-                WorkManager.getInstance(context).enqueue(workRequest)
+                WorkManager.getInstance(context).enqueueUniqueWork(
+                    UNIQUE_WORK_TAG,
+                    ExistingWorkPolicy.REPLACE,
+                    workRequest)
             }
         }
     }
