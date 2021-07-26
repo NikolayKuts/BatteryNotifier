@@ -2,4 +2,7 @@
     <string name="app_name">Battery Notifier</string>
     <string name="charging_state_charging">charging</string>
     <string name="charging_state_not_charging">NOT charging</string>
+    <string name="you_are_a_target">You are a target</string>
+    <string name="watcher">Watcher</string>
+    <string name="target">Target</string>
 </resources>

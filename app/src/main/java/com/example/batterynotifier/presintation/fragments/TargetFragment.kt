@@ -8,14 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.work.*
 import com.example.batterynotifier.databinding.FragmentTargetBinding
-import com.example.batterynotifier.domain.INITIAL_DELAY_MINUTES
 import com.example.batterynotifier.domain.TargetWorker
 import com.example.batterynotifier.domain.UNIQUE_WORK_TAG
 import com.example.batterynotifier.presintation.FIRST_APPLICATION_START_TAG
 import com.example.batterynotifier.presintation.PREFERENCE_FILE_KEY
 import com.example.batterynotifier.presintation.IS_TARGET_MODE_TURNED_ON
 import com.example.batterynotifier.presintation.IS_WATCHER_MODE_TURNED_ON
-import java.util.concurrent.TimeUnit
 
 class TargetFragment : Fragment() {
     private var _binding: FragmentTargetBinding? = null

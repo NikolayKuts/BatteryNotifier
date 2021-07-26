@@ -16,8 +16,6 @@ import com.example.batterynotifier.presintation.interfaces.WatcherView
 import com.example.batterynotifier.presintation.presenters.WatcherPresenter
 import java.text.DateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
-import com.example.batterynotifier.domain.INITIAL_DELAY_MINUTES
 import com.example.batterynotifier.domain.UNIQUE_WORK_TAG
 
 class WatcherFragment : Fragment(), WatcherView {
@@ -64,17 +62,13 @@ class WatcherFragment : Fragment(), WatcherView {
                 sharedPreferences.edit().putBoolean(IS_TARGET_MODE_TURNED_ON, false).apply()
             }
 
-            binding.buttonCancel.setOnClickListener {
+            binding.buttonCancelWatching.setOnClickListener {
                 activity.let { activity ->
                     WorkManager.getInstance(activity.applicationContext).cancelAllWork()
                     sharedPreferences.edit().putBoolean(IS_WATCHER_MODE_TURNED_ON, true).apply()
                     sharedPreferences.edit().putBoolean(FIRST_APPLICATION_START_TAG, true).apply()
                     cancelAllWorks()
                 }
-            }
-
-            binding.buttonClose.setOnClickListener {
-                cancelAllWorks()
             }
         }
     }

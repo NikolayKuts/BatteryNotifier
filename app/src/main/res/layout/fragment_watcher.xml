@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_cancel"
+        android:id="@+id/button_cancel_watching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cancel"
@@ -27,15 +27,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTimeTitle"
         app:layout_constraintVertical_bias="0.49" />
-
-    <Button
-        android:id="@+id/button_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="close"
-        app:layout_constraintEnd_toEndOf="@+id/button_cancel"
-        app:layout_constraintStart_toStartOf="@+id/button_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/button_cancel" />
 
     <TextView
         android:id="@+id/textViewChargingState"
