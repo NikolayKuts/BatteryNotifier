@@ -20,22 +20,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sharedPreference =
-            applicationContext.getSharedPreferences(PREFERENCE_FILE_KEY, Context.MODE_PRIVATE)
-        val isFirstStart = sharedPreference.getBoolean(FIRST_APPLICATION_START_TAG, true)
-        val isTargetModeTurnedOn = sharedPreference.getBoolean(IS_TARGET_MODE_TURNED_ON, false)
-        val isWatcherModeTurnedOn = sharedPreference.getBoolean(IS_WATCHER_MODE_TURNED_ON, false)
+        if (savedInstanceState == null) {
+            val sharedPreference =
+                applicationContext.getSharedPreferences(PREFERENCE_FILE_KEY, Context.MODE_PRIVATE)
+            val isFirstStart = sharedPreference.getBoolean(FIRST_APPLICATION_START_TAG, true)
+            val isTargetModeTurnedOn = sharedPreference.getBoolean(IS_TARGET_MODE_TURNED_ON, false)
+            val isWatcherModeTurnedOn =
+                sharedPreference.getBoolean(IS_WATCHER_MODE_TURNED_ON, false)
 
-        val fragmentTag = intent.getStringExtra(Notifier.FRAGMENT_TAG)
+            val fragmentTag = intent.getStringExtra(Notifier.FRAGMENT_TAG)
 
-        val transaction = supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager.beginTransaction()
 
-        if (isFirstStart) {
-            transaction.replace(R.id.fragmentContainerView, ChoiceFragment()).commit()
-        } else if (fragmentTag == WatcherFragment.WATCHER_FRAGMENT_TAG || isWatcherModeTurnedOn) {
-            transaction.replace(R.id.fragmentContainerView, WatcherFragment()).commit()
-        } else if (isTargetModeTurnedOn) {
-            transaction.replace(R.id.fragmentContainerView, TargetFragment()).commit()
+            when {
+                isFirstStart -> {
+                    transaction.replace(R.id.fragmentContainerView, ChoiceFragment()).commit()
+                }
+                fragmentTag == WatcherFragment.WATCHER_FRAGMENT_TAG || isWatcherModeTurnedOn -> {
+                    transaction.replace(R.id.fragmentContainerView, WatcherFragment()).commit()
+                }
+                isTargetModeTurnedOn -> {
+                    transaction.replace(R.id.fragmentContainerView, TargetFragment()).commit()
+                }
+            }
         }
     }
 }

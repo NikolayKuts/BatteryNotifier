@@ -27,13 +27,16 @@ class WatcherPresenter(private val context: Context, private val view: WatcherVi
     fun showNotificationIfBatteryStateIsNotPermissible() {
         onGetBatteryInfoContainer { container ->
             container?.let {
-                if ((it.batteryCondition ?: 0) < BatteryInfoContainer.MIN_PERMISSIBLE_BATTERY_LEVEL
+                if (
+                    (it.batteryCondition ?: 0) < BatteryInfoContainer.MIN_PERMISSIBLE_BATTERY_LEVEL
                     && it.isCharging != true
                 ) {
                     Notifier(context).apply {
                         setChannel()
-                        setPendingIntent(MainActivity::class.java,
-                            WatcherFragment.WATCHER_FRAGMENT_TAG)
+                        setPendingIntent(
+                            MainActivity::class.java,
+                            WatcherFragment.WATCHER_FRAGMENT_TAG
+                        )
                         pushNotification(Notifier.DEFAULT_WATCHER_NOTIFICATION_TEXT)
                     }
                 }

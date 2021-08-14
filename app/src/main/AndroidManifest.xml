@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.batterynotifier">
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <!--    <uses-permission android:name="android.permission.QUICKBOOT_POWERON" />-->
@@ -11,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BatteryNotifier">
         <activity android:name=".presintation.screens.MainActivity"
-            android:forceDarkAllowed="true">
+            android:forceDarkAllowed="true"
+            tools:targetApi="q">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

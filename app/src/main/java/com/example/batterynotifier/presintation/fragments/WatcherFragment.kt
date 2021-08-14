@@ -89,10 +89,9 @@ class WatcherFragment : Fragment(), WatcherView {
     }
 
     private fun cancelAllWorks() {
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.fragmentContainerView, ChoiceFragment())
-            ?.addToBackStack(null)
-            ?.commit()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView, ChoiceFragment())
+            .commit()
     }
 
     private fun getTime(lastChargingTime: Long?): String {
